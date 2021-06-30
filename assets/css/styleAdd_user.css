@@ -25,8 +25,9 @@
 .alert {
     width: 100%;
     font-size: 1.4em;
-    padding: 0.5em 5em;
+    padding: 0.3em 1em;
     opacity: 0;
+    margin-top: 0.5em;
 }
 
 .alert.active {
@@ -34,15 +35,14 @@
 }
 
 .danger {
-    background-color: rgba(255, 0, 0, 0.479);
-    color: rgb(95, 24, 24);
+    color: red;
 }
 
 .form {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: minmax(100px, auto);
-    margin: 40px;
+    margin: 1em;
     grid-auto-flow: dense;
     grid-gap: 1em;
 }

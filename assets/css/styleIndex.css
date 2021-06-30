@@ -28,11 +28,39 @@ body {
     font-size: 2em;
 }
 
+.nav-head {
+    width: 100%;
+    text-align: center;
+}
+
+#logOut {
+    position: absolute;
+    top: 0.4em;
+    right: 1em;
+    padding: 0.2em;
+    font-size: 0.8em;
+}
+
+
+
+
+#addTask {
+    font-size: 1.3em;
+}
+
+#back {
+    position: absolute;
+    top: 0.7em;
+    left: 1em;
+    font-size: 0.8em;
+}
+
 .alert {
     width: 100%;
     font-size: 1.4em;
-    padding: 0.5em 5em;
+    padding: 0.3em 1em;
     opacity: 0;
+    margin-top: 0.5em;
 }
 
 .alert.active {
@@ -40,8 +68,7 @@ body {
 }
 
 .danger {
-    background-color: rgba(255, 0, 0, 0.479);
-    color: rgb(95, 24, 24);
+    color: red;
 }
 
 .container {
@@ -51,7 +78,7 @@ body {
 }
 
 .btn-gradient {
-    background: linear-gradient(to right, rgb(109, 20, 168), rgb(185, 23, 190));
+    background: linear-gradient(to right, rgb(153, 0, 255), rgb(247, 2, 255));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -60,15 +87,13 @@ body {
 }
 
 .btn-gradient:hover {
-    background: linear-gradient(to right, rgb(130, 17, 206), rgb(245, 148, 248));
+    background: linear-gradient(to right, rgb(111, 4, 211), rgb(231, 22, 196));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-#addTask {
-    font-size: 1.2em;
-}
+
 
 a {
     text-decoration: none;
@@ -141,13 +166,13 @@ table {
 /* Style for add form and update form*/
 #addTask1 {
     font-size: 1.2em;
-    margin-top: 1em;
+    /* margin-top: 0.3em; */
 }
 
 #addTask1 .form-group {
     display: flex;
     flex-direction: column;
-    margin: 2em 1em;
+    margin: 1em 1em;
 }
 
 #addTask1 .form-group>label {

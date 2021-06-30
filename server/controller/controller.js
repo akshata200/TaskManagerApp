@@ -98,7 +98,7 @@ exports.addTask = async (req, res) => {
         // res.send("Title and description is to be filled")
         res.status(201).render('addTask', {
             email: req.body.owner,
-            alert: "Title and description is to be filled"
+            alert: "Please enter Title and Description"
         });
     }
 }

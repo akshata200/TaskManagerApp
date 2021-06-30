@@ -14,7 +14,14 @@
 </head>
 
 <body>
-    <nav class='dark-nav'>Task Manager</nav>
+    <nav class='dark-nav'>
+        <div class='nav-head'>Task Manager</div>
+        <button id="logOut" class="btn-gradient">
+            <a href="/">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </button>
+    </nav>
     <div class="container">
         <form action="/addTask" method="GET">
             <input type="hidden" name="email" id="owner">

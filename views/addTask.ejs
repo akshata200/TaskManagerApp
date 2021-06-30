@@ -15,17 +15,17 @@
 
 <body>
     <nav class='dark-nav'>
-        <div class='nav-head'>Task Manager</div>
-    </nav>
-    <div id="renAlert" class="alert"></div>
-    <div class="container">
         <form action="/index" method="GET">
-            <button id="addTask" type="submit" class="btn-gradient">
+            <button id="back" type="submit" class="btn-gradient">
                 <input type="hidden" name="email" id="owner">
                 <i class="fas fa-angle-double-left"></i>
-                back
             </button>
         </form>
+        <div class='nav-head'>Task Manager</div>
+    </nav>
+    <div class="container">
+        <div id="renAlert" class="alert"></div>
+
         <form action="/addTask" method="POST" id="addTask1">
             <div class="form-group">
                 <input type="hidden" name="id">
