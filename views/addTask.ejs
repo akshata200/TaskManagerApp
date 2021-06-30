@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styleIndex.css">
+</head>
+
+<body>
+    <nav class='dark-nav'>
+        <div class='nav-head'>Task Manager</div>
+    </nav>
+    <div id="renAlert" class="alert"></div>
+    <div class="container">
+        <form action="/index" method="GET">
+            <button id="addTask" type="submit" class="btn-gradient">
+                <input type="hidden" name="email" id="owner">
+                <i class="fas fa-angle-double-left"></i>
+                back
+            </button>
+        </form>
+        <form action="/addTask" method="POST" id="addTask1">
+            <div class="form-group">
+                <input type="hidden" name="id">
+                <input type="hidden" name="owner" id="userMail">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <textarea name="desc" id="desc" cols="30" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <button id="add" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        var email = "<%= email %>";
+        console.log(email);
+
+        const owner = document.getElementById('owner');
+        owner.value = email;
+        const userMail = document.getElementById('userMail');
+        userMail.value = email;
+
+        var renError = "<%= alert %>";
+        console.log(renError);
+        const renAlert = document.getElementById('renAlert');
+        if (renError != "good") {
+            renAlert.classList.add("active");
+            renAlert.classList.add("danger");
+            renAlert.innerHTML = renError;
+        } else {
+            renAlert.classList.remove("active");
+            renAlert.classList.remove("danger");
+            renAlert.innerHTML = renError;
+        }
+    </script>
+</body>
+
+</html>

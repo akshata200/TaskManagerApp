@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark: #3f2b42;
+    --light: #d1abd5;
+    --border: #dee2e6;
+    --border-btn: #edf2f4;
+}
+
+body {
+    width: 100vw;
+}
+
+.dark-nav {
+    background-color: var(--dark);
+    color: var(--border-btn);
+    display: flex;
+    height: 2em;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.alert {
+    width: 100%;
+    font-size: 1.4em;
+    padding: 0.5em 5em;
+    opacity: 0;
+}
+
+.alert.active {
+    opacity: 1;
+}
+
+.danger {
+    background-color: rgba(255, 0, 0, 0.479);
+    color: rgb(95, 24, 24);
+}
+
+.container {
+    width: 1024px;
+    margin: auto;
+    margin-top: 2em;
+}
+
+.btn-gradient {
+    background: linear-gradient(to right, rgb(109, 20, 168), rgb(185, 23, 190));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(to right, rgb(130, 17, 206), rgb(245, 148, 248));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#addTask {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+.border-shadow {
+    border: 1px solid var(--border-btn);
+    box-shadow: 1px 3px 10px #e9ecef;
+}
+
+
+.inline {
+    display: inline-block;
+}
+
+
+table {
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.table td,
+.table th {
+    padding: .75em;
+    vertical-align: top;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    max-width: 50ch;
+    font-size: 1.1em;
+}
+
+.table thead {
+    background-color: var(--dark);
+    color: white;
+    font-family: 'Barlow', sans-serif;
+}
+
+.table td>a.btn {
+    padding: .3em 1em;
+    font-size: 1.1em;
+    margin: 0 0.2em;
+    cursor: pointer;
+}
+
+.table td>a.btn:hover {
+    background-color: rgb(240, 209, 243);
+}
+
+.table tbody tr:hover {
+    background-color: var(--light);
+}
+
+.table tr {
+    max-width: 50ch;
+}
+
+.table tr:hover td>a {
+    box-shadow: none;
+}
+
+.table .thead-dark th {
+    color: #fff;
+    background-color: var(--dark);
+    border: #32383e;
+}
+
+/* Style for add form and update form*/
+#addTask1 {
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+
+#addTask1 .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 1em;
+}
+
+#addTask1 .form-group>label {
+    font-size: 1.5em;
+    color: var(--light)
+}
+
+
+#addTask1 .form-group>input,
+#addTask1 .form-group>textarea {
+    font-size: 1em;
+    margin-top: 0.2em;
+    outline: none;
+    border: 1px solid var(--border);
+    padding: 0.4em;
+    font-family: 'Barlow', sans-serif;
+}
+
+#addTask1 .form-group>button {
+    height: 3em;
+    font-size: 1em;
+    background-color: #a258aa;
+    border: 1px solid var(--border-btn);
+    color: #f1ecf1;
+}
+
+#addTask1 .form-group>button:hover {
+    background-color: var(--dark);
+}
+
+@media only screen and (max-width:1024px) {
+    .container {
+        max-width: 90%;
+        margin: auto;
+        margin-top: 1em;
+    }
+
+    .alert {
+        padding: 0.5em 1em;
+    }
+
+    #addTask {
+        margin-top: 0.2em;
+    }
+}

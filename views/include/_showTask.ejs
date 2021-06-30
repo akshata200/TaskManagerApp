@@ -1,0 +1,11 @@
+<% for(var i=0; i<task.length; i++){ %>
+<tr>
+    <td><%= task[i].title %></td>
+    <td><%= task[i].desc %></td>
+    <td>
+        <a class="btn border-shadow delete" id='delete' data-id=<%= task[i]._id%>>
+            <span class="btn-gradient"><i class="fas fa-trash"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>

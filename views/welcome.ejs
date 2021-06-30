@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/styleWelcome.css">
+</head>
+
+<body>
+    <nav class='dark-nav'>
+        <div class='nav-head'>Task Manager</div>
+    </nav>
+    <div class="content">
+        <div class="content-title">
+            <p>Hello <span id="user"></span></p>
+        </div>
+        <div class="content-text">
+            <p>Welcome to Task Manager.</p>
+            <p>How may I help you?</p>
+        </div>
+        <div class="buttons">
+            <form action="/index" method="GET">
+                <input type="hidden" name="email" id="email1">
+                <button type="submit">Show Task</button>
+            </form>
+            <form action="/addTask" method="GET">
+                <input type="hidden" name="email" id="email2">
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var email = "<%= email %>";
+        var usern = "<%= username %>";
+        console.log(email, usern);
+
+        const user = document.getElementById('user');
+        user.innerHTML = "@" + usern;
+
+
+        const email1 = document.getElementById('email1');
+        email1.value = email;
+        const email2 = document.getElementById('email2');
+        email2.value = email;
+    </script>
+</body>
+
+</html>
