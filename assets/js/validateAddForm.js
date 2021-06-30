@@ -11,13 +11,6 @@ function toogleToBad(selector) {
 // Validate Name field
 const name1 = document.getElementById('name');
 const nameReq = document.getElementById('nameAlert');
-name1.addEventListener('click', (data) => {
-    if (name1.value == "") {
-        nameReq.innerText = "Name is required"
-        toogleToBad(nameReq);
-        toogleToBad(name1);
-    }
-});
 name1.addEventListener('input', (data) => {
     if (name1.value == "") {
         nameReq.innerText = "Name is required"
@@ -34,13 +27,6 @@ name1.addEventListener('input', (data) => {
 // Validate Username field
 const uname = document.getElementById('username');
 const unameReq = document.getElementById('usernameAlert');
-uname.addEventListener('click', (data) => {
-    if (uname.value == "") {
-        unameReq.innerText = "Username is required"
-        toogleToBad(unameReq);
-        toogleToBad(uname);
-    }
-});
 uname.addEventListener('input', (data) => {
     if (uname.value == "") {
         unameReq.innerText = "Name is required"
@@ -57,13 +43,6 @@ uname.addEventListener('input', (data) => {
 // Email validation
 const email = document.getElementById('email');
 const emailReq = document.getElementById('emailAlert');
-email.addEventListener('click', (data) => {
-    if (email.value == "") {
-        emailReq.innerText = "Email is required"
-        toogleToBad(emailReq);
-        toogleToBad(email);
-    }
-});
 email.addEventListener('input', (data) => {
     if (email.value == "") {
         emailReq.innerText = "Email is required"
@@ -86,13 +65,6 @@ email.addEventListener('input', (data) => {
 // Password validation
 const password = document.getElementById('password');
 const passwordReq = document.getElementById('passwordAlert');
-password.addEventListener('click', (data) => {
-    if (password.value == "") {
-        passwordReq.innerText = "Password is required"
-        toogleToBad(passwordReq);
-        toogleToBad(password);
-    }
-});
 password.addEventListener('input', (data) => {
     if (password.value == "") {
         passwordReq.innerText = "Password is required"
@@ -115,13 +87,6 @@ password.addEventListener('input', (data) => {
 // Password Confirmation
 const cPassword = document.getElementById('confirmPassword');
 const cPasswordReq = document.getElementById('cPasswordAlert');
-cPassword.addEventListener('click', (data) => {
-    if (cPassword.value == "") {
-        cPasswordReq.innerText = "Password must match"
-        toogleToBad(cPasswordReq);
-        toogleToBad(cPassword);
-    }
-});
 cPassword.addEventListener('input', (data) => {
     if (cPassword.value == "") {
         cPasswordReq.innerText = "Password is required"
@@ -141,25 +106,25 @@ cPassword.addEventListener('input', (data) => {
 });
 
 // enabling button
-const button = document.getElementById('btn2');
-const formAlert = document.getElementById('formAlert');
+// const button = document.getElementById('btn2');
+// const formAlert = document.getElementById('formAlert');
 
-button.addEventListener('click', (e) => {
-    // e.preventDefault();
-    if (formFilled()) {
-        console.log('Okayy');
-        formAlert.innerHTML = "Thank you";
-        toogleToGood(formAlert);
-    } else {
-        formAlert.innerHTML = "Please Fill form correctly";
-        toogleToBad(formAlert);
-    }
-})
+// button.addEventListener('click', (e) => {
+//     // e.preventDefault();
+//     if (formFilled()) {
+//         console.log('Okayy');
+//         formAlert.innerHTML = "Thank you";
+//         toogleToGood(formAlert);
+//     } else {
+//         formAlert.innerHTML = "Please Fill form correctly";
+//         toogleToBad(formAlert);
+//     }
+// })
 
-function formFilled() {
-    if (name1.classList.value == 'good' && uname.classList.value == 'good' && email.classList.value == 'good' && password.classList.value == 'good' && cPassword.classList.value == 'good') {
-        return true;
-    } else {
-        return false;
-    }
-}
+// function formFilled() {
+//     if (name1.classList.value == 'good' && uname.classList.value == 'good' && email.classList.value == 'good' && password.classList.value == 'good' && cPassword.classList.value == 'good') {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }

@@ -128,6 +128,10 @@ nav:before {
         width: 80%;
     }
 
+    .content-text {
+        font-size: 1.2em;
+    }
+
     .buttons {
         flex-direction: column;
         justify-content: center;

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const Taskdb = require('./modelTask')
 
 var schema = new mongoose.Schema({
     name: {

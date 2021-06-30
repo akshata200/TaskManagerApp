@@ -1,6 +1,7 @@
-const Userdb = require('../model/model');
+const Userdb = require('../model/modelUser');
 const Taskdb = require('../model/modelTask');
 const bcrypt = require('bcryptjs');
+const axios = require('axios');
 
 exports.create = (req, res) => {
     const password = req.body.password;
@@ -52,25 +53,23 @@ exports.find = async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
 
-        const userEmail = await Userdb.findOne({
+        const user = await Userdb.findOne({
             email: email
         });
-        const isMatch = await bcrypt.compare(password, userEmail.password);
-        if (userEmail.name == name && isMatch) {
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (user.name == name && isMatch) {
             res.status(200).render("welcome", {
                 email: req.body.email,
-                username: userEmail.username,
-                data: userEmail.data
+                username: user.username,
+                data: user.data
             });
         } else {
-            // res.send("Invalid Details")
             res.render('login', {
                 alert: "Invalid Details"
             })
         }
 
     } catch (err) {
-        // res.status(400).send("Invalid Email")
         res.render('login', {
             alert: "Invalid Email"
         })
@@ -78,29 +77,51 @@ exports.find = async (req, res) => {
 }
 
 exports.addTask = async (req, res) => {
-
-    try {
-        const taskDetail = new Taskdb({
-            owner: req.body.owner,
-            title: req.body.title,
-            desc: req.body.desc
-        })
-        const user = await taskDetail.save();
-        //res.send(user);
-        res.status(201).render('addTask', {
-            email: req.body.owner,
-            alert: "good"
-        });
-
-
-    } catch (err) {
-        // res.status(400).send(err);
-        // res.send("Title and description is to be filled")
-        res.status(201).render('addTask', {
-            email: req.body.owner,
-            alert: "Please enter Title and Description"
-        });
+    const taskDetail = new Taskdb({
+        owner: req.body.owner,
+        title: req.body.title,
+        desc: req.body.desc
+    })
+    const task = await Taskdb.findOne({
+        owner: req.body.owner,
+        title: req.body.title.trim(),
+        desc: req.body.desc.trim()
+    });
+    if (task == null) {
+        taskDetail.save()
+            .then(user => {
+                const url1 = process.env.heroku_URI + user.owner;
+                // const url1 = `https://usertask-manger.herokuapp.com/api/users?email=${user.owner}`;
+                axios.get(url1)
+                    .then(response => {
+                        res.render("index", {
+                            task: response.data,
+                            email: user.owner
+                        });
+                    }).catch(err => {
+                        console.log(err);
+                        res.send(err);
+                    })
+            }).catch(err => {
+                res.render('addTask', {
+                    alert: "Please enter Title and Description"
+                })
+            })
+    } else {
+        const url1 = process.env.heroku_URI + req.body.owner;
+        // const url1 = `https://usertask-manger.herokuapp.com/api/users?email=${user.owner}`;
+        axios.get(url1)
+            .then(response => {
+                res.render("index", {
+                    task: response.data,
+                    email: req.body.owner
+                });
+            }).catch(err => {
+                console.log(err);
+                res.send(err);
+            })
     }
+
 }
 
 exports.show = (req, res) => {
