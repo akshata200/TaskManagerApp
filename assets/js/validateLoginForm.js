@@ -17,7 +17,7 @@ name1.addEventListener('input', (data) => {
         toogleToBad(nameReq);
         toogleToBad(name1);
     } else {
-        nameReq.innerText = "Looks Good!"
+        nameReq.innerText = ""
         toogleToGood(nameReq);
         toogleToGood(name1);
     }
@@ -59,20 +59,11 @@ password.addEventListener('input', (data) => {
         toogleToBad(hide);
         toogleToBad(show);
     } else {
-        const pass = password.value;
-        if (pass.length >= 7) {
-            passwordReq.innerText = "Looks Good!"
-            toogleToGood(passwordReq);
-            toogleToGood(password);
-            toogleToGood(hide);
-            toogleToGood(show);
-        } else {
-            // passwordReq.innerText = "Password must have minimum 7 characters"
-            toogleToBad(passwordReq);
-            toogleToBad(password);
-            toogleToBad(hide);
-            toogleToBad(show);
-        }
+        passwordReq.innerText = "";
+        toogleToGood(passwordReq);
+        toogleToGood(password);
+        toogleToGood(hide);
+        toogleToGood(show);
     }
 });
 

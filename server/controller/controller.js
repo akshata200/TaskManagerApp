@@ -103,6 +103,7 @@ exports.addTask = async (req, res) => {
                     })
             }).catch(err => {
                 res.render('addTask', {
+                    email: req.body.owner,
                     alert: "Please enter Title and Description"
                 })
             })
