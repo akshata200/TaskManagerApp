@@ -84,7 +84,6 @@ show.addEventListener('click', (e) => {
     password.type = "text";
 })
 hide.addEventListener('click', (e) => {
-    F
     e.preventDefault();
     hide.classList.remove('active');
     show.classList.add('active');
