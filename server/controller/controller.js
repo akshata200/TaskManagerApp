@@ -90,8 +90,7 @@ exports.addTask = async (req, res) => {
     if (task == null) {
         taskDetail.save()
             .then(user => {
-                const url1 = process.env.heroku_URI + user.owner;
-                // const url1 = `https://usertask-manger.herokuapp.com/api/users?email=${user.owner}`;
+                const url1 = process.env.FETCH_TASKS_BY_EMAIL + `/api/users?email=${user.owner}`;
                 axios.get(url1)
                     .then(response => {
                         res.render("index", {
@@ -108,8 +107,7 @@ exports.addTask = async (req, res) => {
                 })
             })
     } else {
-        const url1 = process.env.heroku_URI + req.body.owner;
-        // const url1 = `https://usertask-manger.herokuapp.com/api/users?email=${user.owner}`;
+        const url1 = process.env.FETCH_TASKS_BY_EMAIL + `/api/users?email=${user.owner}`;
         axios.get(url1)
             .then(response => {
                 res.render("index", {

@@ -78,18 +78,80 @@
     border: 1px solid rgb(202, 19, 19);
 }
 
-/* 
-.form-group:nth-child(1) {
-    grid-column: span ;
+.showbtn {
+    display: flex;
+    width: 100%;
 }
 
-.form-group:nth-child(2) {
-    grid-column: span 3;
+.showbtn input {
+    border-radius: 10px 0 0 10px;
+    border-right: none;
 }
 
-.form-group:nth-child(3) {
-    grid-column: span 1;
+#password {
+    width: 100%;
+}
+
+/* .passwordDisplay {
+    position: relative;
+    right: 0em;
+    top: 0em;
 } */
+
+#showPassword {
+    position: relative;
+    right: 0em;
+    top: 0em;
+    border-radius: 0 10px 10px 0;
+    padding: 0.6em;
+    padding-right: 1em;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-left: none;
+    display: none;
+}
+
+#showPassword.active {
+    display: inline;
+}
+
+#showPassword.good {
+    border: 1px solid green;
+    border-left: none;
+}
+
+#showPassword.bad {
+    border: 1px solid rgb(202, 19, 19);
+    border-left: none;
+}
+
+#hidePassword {
+    position: relative;
+    right: 0em;
+    top: 0em;
+    border-radius: 0 10px 10px 0;
+    padding: 0.5em;
+    padding-right: 1em;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-left: none;
+    display: none;
+}
+
+#hidePassword.active {
+    display: inline;
+}
+
+#hidePassword.good {
+    border: 1px solid green;
+    border-left: none;
+}
+
+#hidePassword.bad {
+    border: 1px solid rgb(202, 19, 19);
+    border-left: none;
+}
+
 
 span.good {
     color: green;

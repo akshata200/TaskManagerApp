@@ -15,7 +15,7 @@ exports.welcome = (req, res) => {
 };
 
 exports.index = (req, res) => {
-    const url1 = `https://usertask-manger.herokuapp.com/api/users?email=${req.query.email}`;
+    const url1 = process.env.FETCH_TASKS_BY_EMAIL + `/api/users?email=${req.query.email}`;
     axios.get(url1)
         .then(response => {
             res.render("index", {

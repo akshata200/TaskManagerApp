@@ -100,6 +100,89 @@ span.bad {
     color: rgb(202, 19, 19);
 }
 
+.showbtn {
+    display: flex;
+    width: 100%;
+}
+
+.showbtn input {
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+}
+
+#password,
+#confirmPassword {
+    width: 100%;
+}
+
+/* .passwordDisplay {
+    position: relative;
+    right: 0em;
+    top: 0em;
+} */
+
+#showPassword,
+#showConPassword {
+    position: relative;
+    right: 0em;
+    top: 0em;
+    border-radius: 0 10px 10px 0;
+    padding: 0.65em;
+    padding-right: 1em;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-left: none;
+    display: none;
+}
+
+#showPassword.active,
+#showConPassword.active {
+    display: inline;
+}
+
+#showPassword.good,
+#showConPassword.good {
+    border: 1px solid green;
+    border-left: none;
+}
+
+#showPassword.bad,
+#showConPassword.bad {
+    border: 1px solid rgb(202, 19, 19);
+    border-left: none;
+}
+
+#hidePassword,
+#hideConPassword {
+    position: relative;
+    right: 0em;
+    top: 0em;
+    border-radius: 0 10px 10px 0;
+    padding: 0.5em;
+    padding-right: 1em;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-left: none;
+    display: none;
+}
+
+#hidePassword.active,
+#hideConPassword.active {
+    display: inline;
+}
+
+#hidePassword.good,
+#hideConPassword.good {
+    border: 1px solid green;
+    border-left: none;
+}
+
+#hidePassword.bad,
+#hideConPassword.bad {
+    border: 1px solid rgb(202, 19, 19);
+    border-left: none;
+}
+
 .btn1 {
     margin-top: 2em;
     font-size: 1em;

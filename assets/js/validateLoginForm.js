@@ -49,45 +49,44 @@ email.addEventListener('input', (data) => {
 // Password validation
 const password = document.getElementById('password');
 const passwordReq = document.getElementById('passwordAlert');
+const show = document.getElementById('showPassword');
+const hide = document.getElementById('hidePassword');
 password.addEventListener('input', (data) => {
     if (password.value == "") {
-        passwordReq.innerText = "Password is required"
+        passwordReq.innerText = "Password is required";
         toogleToBad(passwordReq);
         toogleToBad(password);
+        toogleToBad(hide);
+        toogleToBad(show);
     } else {
         const pass = password.value;
         if (pass.length >= 7) {
             passwordReq.innerText = "Looks Good!"
             toogleToGood(passwordReq);
             toogleToGood(password);
+            toogleToGood(hide);
+            toogleToGood(show);
         } else {
             // passwordReq.innerText = "Password must have minimum 7 characters"
             toogleToBad(passwordReq);
             toogleToBad(password);
+            toogleToBad(hide);
+            toogleToBad(show);
         }
     }
 });
 
-// enabling button
-// const button = document.getElementById('btn2');
-// const formAlert = document.getElementById('formAlert');
-
-// button.addEventListener('click', (e) => {
-//     // e.preventDefault();
-//     if (formFilled()) {
-//         console.log('Okayy');
-//         formAlert.innerHTML = "Thank you";
-//         toogleToGood(formAlert);
-//     } else {
-//         formAlert.innerHTML = "Please Fill form correctly";
-//         toogleToBad(formAlert);
-//     }
-// })
-
-// function formFilled() {
-//     if (name1.classList.value == 'good' && email.classList.value == 'good' && password.classList.value == 'good') {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
+// enabling show and hide password button
+show.addEventListener('click', (e) => {
+    e.preventDefault();
+    show.classList.remove('active');
+    hide.classList.add('active');
+    password.type = "text";
+})
+hide.addEventListener('click', (e) => {
+    F
+    e.preventDefault();
+    hide.classList.remove('active');
+    show.classList.add('active');
+    password.type = "password";
+})
