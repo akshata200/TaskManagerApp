@@ -4,7 +4,7 @@ Array.from(del).forEach(delBtn => {
         const delId = delBtn.getAttribute("data-id");
         let urldel = `https://usertask-manger.herokuapp.com/api/users/${delId}`;
         fetch(urldel, {
-            method: "DELETE",
+            method: "DELETE"
         }).then(() => {
             console.log('Successfully deleted');
             location.reload();

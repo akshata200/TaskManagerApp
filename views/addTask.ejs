@@ -54,15 +54,28 @@
         var renError = "<%= alert %>";
         console.log(renError);
         const renAlert = document.getElementById('renAlert');
-        if (renError != "good") {
+        if (renError == "Data Saved") {
             renAlert.classList.add("active");
-            renAlert.classList.add("danger");
+            renAlert.classList.remove("danger");
+            renAlert.classList.add("success");
             renAlert.innerHTML = renError;
-        } else {
+        } else if (renError == "good") {
             renAlert.classList.remove("active");
             renAlert.classList.remove("danger");
             renAlert.innerHTML = renError;
+        } else {
+            renAlert.classList.add("active");
+            renAlert.classList.add("danger");
+            renAlert.innerHTML = renError;
         }
+
+        setTimeout(() => {
+            renAlert.classList.remove("active");
+            renAlert.classList.remove("danger");
+            renAlert.innerHTML = "good";
+            renError = "good";
+        }, 2000);
+        renError = "good";
     </script>
 </body>
 

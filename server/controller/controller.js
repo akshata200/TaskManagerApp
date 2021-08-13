@@ -77,25 +77,25 @@ exports.find = async (req, res) => {
 }
 
 exports.addTask = async (req, res) => {
-    const taskDetail = new Taskdb({
-        owner: req.body.owner,
-        title: req.body.title,
-        desc: req.body.desc
-    })
     const task = await Taskdb.findOne({
         owner: req.body.owner,
         title: req.body.title.trim(),
         desc: req.body.desc.trim()
     });
     if (task == null) {
+        const taskDetail = new Taskdb({
+            owner: req.body.owner,
+            title: req.body.title,
+            desc: req.body.desc
+        })
         taskDetail.save()
             .then(user => {
                 const url1 = process.env.FETCH_TASKS_BY_EMAIL + `/api/users?email=${user.owner}`;
                 axios.get(url1)
                     .then(response => {
-                        res.render("index", {
-                            task: response.data,
-                            email: user.owner
+                        res.render('addTask', {
+                            email: req.body.owner,
+                            alert: "Data Saved"
                         });
                     }).catch(err => {
                         console.log(err);
@@ -108,12 +108,12 @@ exports.addTask = async (req, res) => {
                 })
             })
     } else {
-        const url1 = process.env.FETCH_TASKS_BY_EMAIL + `/api/users?email=${user.owner}`;
+        const url1 = process.env.FETCH_TASKS_BY_EMAIL + `/api/users?email=${req.body.owner}`;
         axios.get(url1)
             .then(response => {
-                res.render("index", {
-                    task: response.data,
-                    email: req.body.owner
+                res.render('addTask', {
+                    email: req.body.owner,
+                    alert: "Data Saved"
                 });
             }).catch(err => {
                 console.log(err);

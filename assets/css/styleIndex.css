@@ -70,6 +70,9 @@ body {
 .danger {
     color: red;
 }
+.success{
+    color: rgb(16, 172, 16);
+}
 
 .container {
     width: 1024px;
